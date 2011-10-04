@@ -1,0 +1,16 @@
+* Sat May 21 2011 Anas Nashif <anas.nashif@intel.com> - 0.25
+- Update to 0.25
+
+* Tue Jan 11 2011 Anas Nashif <anas.nashif@intel.com> - 0.23
+- Package now provide pkgconfig(pkg-config) (bmc #7818)
+
+* Fri Mar 26 2010 Anas Nashif <anas.nashif@intel.com> - 0.23
+- Remove Epoch
+
+* Tue Dec 02 2008 Anas Nashif <anas.nashif@intel.com> 0.23
+- Use new macros
+- Split docs into a sup-package
+
+* Wed Jul 23 2008 zhang xin <xing.z.zhang@intel.com>
+- Mark man file as %doc
+

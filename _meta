@@ -1,0 +1,9 @@
+<package project="Mer:Trunk:Base" name="pkgconfig">
+  <title>A tool for determining compilation options</title>
+  <description>The pkgconfig tool determines compilation options. For each required
+library, it reads the configuration file and outputs the necessary
+compiler and linker flags.
+
+</description>
+  <url>http://pkgconfig.freedesktop.org</url>
+</package>
