@@ -1,3 +1,9 @@
+* Sat Aug 25 2012 Marko Saukko <marko.saukko@jollamobile.com> - 0.27.1
+- Fixes MER#290: upgrade pkgconfig to latest version (when 0.27 is released)
+- Added .yaml for spectacle
+- Removed popt dependency.
+- Dropped all patches
+
 * Sat May 21 2011 Anas Nashif <anas.nashif@intel.com> - 0.25
 - Update to 0.25
 

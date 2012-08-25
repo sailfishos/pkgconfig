@@ -1,0 +1,23 @@
+Name: pkgconfig
+Summary: A tool for determining compilation options
+Version: 0.27.1
+Release: 1
+Group: Development/Tools
+License: GPLv2+
+URL: http://pkgconfig.freedesktop.org
+Sources:
+    - http://www.freedesktop.org/software/pkgconfig/releases/pkg-config-%{version}.tar.gz
+Description: |
+    The pkgconfig tool determines compilation options. For each required
+    library, it reads the configuration file and outputs the necessary
+    compiler and linker flags.
+
+Provides:
+    - pkgconfig(pkg-config) = %{version}
+Configure: configure
+ConfigOptions:
+    - --disable-shared
+    # Building with internal glib to avoid build loop with glib.
+    - --with-internal-glib
+    - --with-pc-path=%{_libdir}/pkgconfig:%{_datadir}/pkgconfig
+Builder: make
