@@ -16,6 +16,7 @@ License:    GPLv2+
 URL:        http://pkgconfig.freedesktop.org
 Source0:    http://www.freedesktop.org/software/pkgconfig/releases/pkg-config-%{version}.tar.gz
 Source100:  pkgconfig.yaml
+Patch0:     pkgconfig-aarch64.patch
 Provides:   pkgconfig(pkg-config) = %{version}
 
 %description
@@ -27,7 +28,7 @@ compiler and linker flags.
 
 %prep
 %setup -q -n pkg-config-%{version}
-
+%patch0 -p1
 # >> setup
 # << setup
 
