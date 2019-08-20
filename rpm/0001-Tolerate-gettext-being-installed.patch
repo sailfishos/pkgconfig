@@ -1,0 +1,25 @@
+From 7b0d7f9de812cb297175a29c975fe29fa66b9e2c Wed, 21 Aug 2019 10:43:32 +0200
+From: Andrew Branson <andrew.branson@jollamobile.com>
+Date: Wed, 21 Aug 2019 10:21:51 +0200
+Subject: [PATCH] Tolerate gettext being installed.
+
+Macros provided by gettext are also declared by the internal glib build here. 
+Force overwrite them if they are present. OBS builds won't generally have gettext
+present during this build, but this will make sure local builds work too.
+
+
+diff --git a/glib/m4macros/glib-gettext.m4 b/glib/m4macros/glib-gettext.m4
+index 5217fd8..9f39b5f 100644
+--- a/glib/m4macros/glib-gettext.m4
++++ b/glib/m4macros/glib-gettext.m4
+@@ -36,8 +36,8 @@
+ dnl try to pull in the installed version of these macros
+ dnl when running aclocal in the glib directory.
+ dnl
+-m4_copy([AC_DEFUN],[glib_DEFUN])
+-m4_copy([AC_REQUIRE],[glib_REQUIRE])
++m4_copy_force([AC_DEFUN],[glib_DEFUN])
++m4_copy_force([AC_REQUIRE],[glib_REQUIRE])
+ dnl
+ dnl At the end, if we're not within glib, we'll define the public
+ dnl definitions in terms of our private definitions.
