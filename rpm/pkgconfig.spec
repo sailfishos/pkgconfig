@@ -1,13 +1,15 @@
 Name:       pkgconfig
 Summary:    A tool for determining compilation options
-Version:    0.27.1
+Version:    0.29.2
 Release:    2
 Group:      Development/Tools
 License:    GPLv2+
 URL:        http://pkgconfig.freedesktop.org
-Source0:    http://www.freedesktop.org/software/pkgconfig/releases/pkg-config-%{version}.tar.gz
-Patch0:     pkgconfig-aarch64.patch
+Source0:    http://www.freedesktop.org/software/pkgconfig/releases/pkgconfig-%{version}.tar.gz
+Patch0:     0001-Tolerate-gettext-being-installed.patch
 Provides:   pkgconfig(pkg-config) = %{version}
+# This build uses the likes of autoconf, automake, and libtool, but adding them as
+# build deps would cause superfluous build loops. 
 
 %description
 The pkgconfig tool determines compilation options. For each required
@@ -23,11 +25,11 @@ Requires:  %{name} = %{version}-%{release}
 Man pages for %{name}.
 
 %prep
-%setup -q -n pkg-config-%{version}
-%patch0 -p1
+%setup -q -n %{name}-%{version}/upstream
+%autopatch -p1
 
 %build
-
+NOCONFIGURE=1 ./autogen.sh
 %configure --disable-static \
     --disable-shared \
     --with-internal-glib \
